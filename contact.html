@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us - Project Versse</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -21,89 +21,129 @@
     }
   </style>
 </head>
+
 <body class="zoom-in bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 text-gray-800">
-
-<!-- Your header code here -->
-
-<main class="max-w-4xl mx-auto px-4 py-20">
-  <section class="text-center mb-12 zoom-in">
-    <h1 class="text-4xl font-extrabold text-indigo-700 mb-4">Get in Touch</h1>
-    <p class="text-lg text-gray-700">Send your project idea, and we’ll get back to you!</p>
-  </section>
-
-  <!-- Contact Form -->
-  <form id="contactForm" class="bg-white p-8 rounded-xl shadow-xl space-y-6 zoom-in">
-    <div>
-      <label class="block text-gray-700 font-semibold mb-1">Name</label>
-      <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-indigo-600">Project Verse</div>
+      <nav class="hidden sm:flex space-x-6 text-sm font-medium">
+        <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
+        <a href="pricing.html" class="text-gray-700 hover:text-indigo-600 transition">Pricing</a>
+        <a href="about.html" class="text-gray-700 hover:text-indigo-600 transition">About</a>
+        <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
+      </nav>
+      <button id="menu-toggle" class="sm:hidden text-3xl text-indigo-600 focus:outline-none transition-transform duration-300">☰</button>
     </div>
-
-    <div>
-      <label class="block text-gray-700 font-semibold mb-1">Email</label>
-      <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
+    <div id="mobile-menu" class="sm:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+      <a href="index.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">Home</a>
+      <a href="pricing.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">Pricing</a>
+      <a href="about.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">About</a>
+      <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">Contact</a>
     </div>
+  </header>
 
-    <div>
-      <label class="block text-gray-700 font-semibold mb-1">Mobile Number</label>
-      <input type="text" name="mobile" required pattern="[0-9]{10,}" title="Enter a valid number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
-    </div>
+  <!-- Main Section -->
+  <main class="max-w-4xl mx-auto px-4 py-20">
+    <section class="text-center mb-12 zoom-in">
+      <h1 class="text-4xl font-extrabold text-indigo-700 mb-4">Get in Touch</h1>
+      <p class="text-lg text-gray-700">Have a project in mind? Send us a message and we’ll reach out to you soon.</p>
+    </section>
 
-    <div>
-      <label class="block text-gray-700 font-semibold mb-1">Message</label>
-      <textarea name="message" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400"></textarea>
-    </div>
+    <!-- Contact Form -->
+    <form id="contactForm" class="bg-white p-8 rounded-xl shadow-xl space-y-6 zoom-in">
+      <div>
+        <label class="block text-gray-700 font-semibold mb-1">Name</label>
+        <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold mb-1">Email</label>
+        <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold mb-1">Mobile Number</label>
+        <input type="text" name="mobile" id="mobile" pattern="[0-9]{10,}" required title="Enter a valid mobile number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold mb-1">Message</label>
+        <textarea name="message" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400"></textarea>
+      </div>
+      <button type="submit" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition">
+        Send Message
+      </button>
+    </form>
+  </main>
 
-    <button type="submit" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:opacity-90 transition">
-      Send Message
-    </button>
-  </form>
-
-  <!-- Confirmation Message -->
+  <!-- Popup -->
   <div id="popup" class="fixed top-6 right-6 bg-white text-indigo-700 font-semibold px-6 py-4 rounded-xl shadow-xl hidden z-50"></div>
-</main>
 
-<!-- Your footer code here -->
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-20">
+    <div class="max-w-7xl mx-auto text-center">
+      &copy; 2025 Project Versse. All rights reserved.
+    </div>
+  </footer>
 
-<script>
-  const form = document.getElementById('contactForm');
-  const popup = document.getElementById('popup');
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyxCCylZ5E0V4hmCIt6o2j0urPc0XFD7I69AMoaxtrEKscZUoicNZNmXwq15-fCYOl2Ng/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json'
-        }
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add('zoom-in-active');
+      document.querySelectorAll('.zoom-in').forEach((el, i) => {
+        setTimeout(() => el.classList.add('zoom-in-active'), 200 * i);
       });
 
-      const result = await response.json();
-      if (result.status === 'success') {
-        window.location.href = 'thankyou.html';
-      } else {
-        throw new Error("Failed to send data");
-      }
-    } catch (err) {
-      popup.innerText = "❌ Failed to submit the form. Try again!";
-      popup.classList.remove('hidden');
-      setTimeout(() => popup.classList.add('hidden'), 5000);
-    }
-  });
+      const popup = document.getElementById('popup');
 
-  // Zoom-in effect
-  window.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('zoom-in-active');
-    document.querySelectorAll('.zoom-in').forEach((el, i) => {
-      setTimeout(() => el.classList.add('zoom-in-active'), 200 * i);
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const mobile = formData.get("mobile").trim();
+
+        if (!/^\d{10,}$/.test(mobile)) {
+          popup.innerText = "❌ Invalid mobile number!";
+          popup.classList.remove("hidden");
+          setTimeout(() => popup.classList.add("hidden"), 5000);
+          return;
+        }
+
+        fetch("https://script.google.com/macros/s/AKfycbyWMulJmgJM14zuQZqif5kc4kPq3mrJDKD6xGE3EfNhsQkRKUhvc3Ao5QalGxpPzK7G/exec", {
+          method: "POST",
+          body: formData
+        })
+        .then(res => {
+          if (res.ok) {
+            window.location.href = "https://project-verse.github.io/project-verse/thankyou.html";
+          } else {
+            throw new Error("Failed");
+          }
+        })
+        .catch(() => {
+          popup.innerText = "❌ Failed to submit the form. Try again!";
+          popup.classList.remove("hidden");
+          setTimeout(() => popup.classList.add("hidden"), 5000);
+        });
+      });
+
+      // Mobile Menu
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      let isOpen = false;
+
+      menuToggle.addEventListener("click", () => {
+        isOpen = !isOpen;
+        if (isOpen) {
+          mobileMenu.classList.remove("max-h-0");
+          mobileMenu.classList.add("max-h-96");
+          menuToggle.textContent = "✕";
+        } else {
+          mobileMenu.classList.remove("max-h-96");
+          mobileMenu.classList.add("max-h-0");
+          menuToggle.textContent = "☰";
+        }
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
