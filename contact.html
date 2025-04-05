@@ -25,72 +25,69 @@
 <body class="zoom-in bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 text-gray-800">
   <!-- Header -->
   <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-      <div class="text-xl font-bold text-indigo-600">Project <br class="sm:hidden">Verse</div>
-
-      <!-- Hamburger for Mobile -->
-      <button id="menu-toggle" class="text-2xl sm:hidden focus:outline-none transition-transform duration-300">☰</button>
-
-      <!-- Desktop Menu -->
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-indigo-600">Project Verse</div>
       <nav class="hidden sm:flex space-x-6 text-sm font-medium">
         <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
         <a href="pricing.html" class="text-gray-700 hover:text-indigo-600 transition">Pricing</a>
         <a href="about.html" class="text-gray-700 hover:text-indigo-600 transition">About</a>
         <a href="contact.html" class="text-gray-700 hover:text-indigo-600 transition">Contact</a>
       </nav>
+      <button id="menu-toggle" class="sm:hidden text-3xl text-indigo-600 focus:outline-none transition-transform duration-300">☰</button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="sm:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out px-4">
-      <a href="index.html" class="block py-2 text-gray-700 hover:text-indigo-600">Home</a>
-      <a href="pricing.html" class="block py-2 text-gray-700 hover:text-indigo-600">Pricing</a>
-      <a href="about.html" class="block py-2 text-gray-700 hover:text-indigo-600">About</a>
-      <a href="contact.html" class="block py-2 text-gray-700 hover:text-indigo-600">Contact</a>
+    <div id="mobile-menu" class="sm:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+      <a href="index.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">Home</a>
+      <a href="pricing.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">Pricing</a>
+      <a href="about.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">About</a>
+      <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:text-blue-600">Contact</a>
     </div>
   </header>
 
-  <!-- Main Section -->
+  <!-- Main Content -->
   <main class="max-w-4xl mx-auto px-4 py-20">
-    <!-- Title -->
     <section class="text-center mb-12 zoom-in">
       <h1 class="text-4xl font-extrabold text-indigo-700 mb-4">Get in Touch</h1>
-      <p class="text-lg text-gray-700">Got a project in mind? Fill out the form and we’ll get back to you quickly!</p>
+      <p class="text-lg text-gray-700">Have a project in mind? Send us a message and we’ll reach out to you soon.</p>
     </section>
 
     <!-- Contact Form -->
-    <form id="contactForm" action="https://formsubmit.co/mindfulgrowthwave@gmail.com" method="POST" class="...">
+    <form id="contactForm" action="https://formsubmit.co/mindfulgrowthwave@gmail.com" method="POST" class="bg-white p-8 rounded-xl shadow-xl space-y-6 zoom-in">
+      <!-- Replace with your actual email above -->
+
+      <!-- Hidden fields for customization -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_autoresponse" value="Thanks for contacting Project Versse! We'll get back to you soon.">
-      <input type="hidden" name="_next" value="contact.html?success=true">
+      <input type="hidden" name="_autoresponse" value="Thank you for contacting Project Versse. We’ve received your message and will be in touch shortly!">
+      <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
 
       <div>
         <label class="block text-gray-700 font-semibold mb-1">Name</label>
-        <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        <input type="text" name="name" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
       </div>
 
       <div>
         <label class="block text-gray-700 font-semibold mb-1">Email</label>
-        <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        <input type="email" name="email" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
       </div>
 
       <div>
         <label class="block text-gray-700 font-semibold mb-1">Mobile Number</label>
-        <input type="text" name="mobile" id="mobile" required pattern="[0-9]{10,}" title="Please enter a valid number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+        <input type="text" name="mobile" id="mobile" pattern="[0-9]{10,}" required title="Enter a valid mobile number" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400" />
       </div>
 
       <div>
         <label class="block text-gray-700 font-semibold mb-1">Message</label>
-        <textarea name="message" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"></textarea>
+        <textarea name="message" rows="5" required class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-indigo-400"></textarea>
       </div>
 
-      <button type="submit" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition">
+      <button type="submit" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition">
         Send Message
       </button>
     </form>
   </main>
 
-  <!-- Popup Notification -->
+  <!-- Popup -->
   <div id="popup" class="fixed top-6 right-6 bg-white text-indigo-700 font-semibold px-6 py-4 rounded-xl shadow-xl hidden z-50"></div>
 
   <!-- Footer -->
@@ -100,19 +97,17 @@
     </div>
   </footer>
 
-  <!-- Script -->
+  <!-- Scripts -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       document.body.classList.add('zoom-in-active');
       document.querySelectorAll('.zoom-in').forEach((el, i) => {
-        setTimeout(() => {
-          el.classList.add('zoom-in-active');
-        }, 200 * i);
+        setTimeout(() => el.classList.add('zoom-in-active'), 200 * i);
       });
 
-      // Popup logic
       const params = new URLSearchParams(window.location.search);
       const popup = document.getElementById('popup');
+
       if (params.get('success') === 'true') {
         popup.innerText = "✅ Message sent successfully!";
         popup.classList.remove('hidden');
@@ -123,42 +118,33 @@
         setTimeout(() => popup.classList.add('hidden'), 5000);
       }
 
-      // Mobile number validation
-      const form = document.getElementById('contactForm');
-      const mobile = document.getElementById('mobile');
-      form.addEventListener('submit', function (e) {
-        const num = mobile.value.trim();
-        if (!/^\d{10,}$/.test(num)) {
+      document.getElementById('contactForm').addEventListener('submit', e => {
+        const mobile = document.getElementById('mobile').value.trim();
+        if (!/^\d{10,}$/.test(mobile)) {
           e.preventDefault();
-          popup.innerText = "❌ Invalid mobile number. Please enter only numbers.";
+          popup.innerText = "❌ Invalid mobile number!";
           popup.classList.remove('hidden');
           setTimeout(() => popup.classList.add('hidden'), 5000);
         }
       });
     });
 
-    // Mobile menu toggle
+    // Mobile Menu
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     let isOpen = false;
 
     menuToggle.addEventListener("click", () => {
       isOpen = !isOpen;
-      mobileMenu.classList.toggle("max-h-0");
-      mobileMenu.classList.toggle("max-h-96");
-      menuToggle.textContent = isOpen ? "☰" : "✕";
-    });
-
-    // Smooth page transition
-    const links = document.querySelectorAll('a[href$=".html"]');
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        document.body.classList.remove('zoom-in-active');
-        setTimeout(() => {
-          window.location.href = link.href;
-        }, 300);
-      });
+      if (isOpen) {
+        mobileMenu.classList.remove("max-h-0");
+        mobileMenu.classList.add("max-h-96");
+        menuToggle.textContent = "✕";
+      } else {
+        mobileMenu.classList.remove("max-h-96");
+        mobileMenu.classList.add("max-h-0");
+        menuToggle.textContent = "☰";
+      }
     });
   </script>
 </body>
