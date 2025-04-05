@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Versse - Pricing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <style>
+    @import "tailwindcss";
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .zoom-in-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.6s ease-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-gray-800 zoom-in">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div class="text-xl font-bold text-blue-600">Project <br class="sm:hidden">Verse</div>
+
+      <!-- Hamburger Button -->
+      <button id="menu-toggle" class="text-2xl sm:hidden focus:outline-none transition-transform duration-300">☰</button>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden sm:flex space-x-6 text-sm font-medium">
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+        <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition">Pricing</a>
+        <a href="about.html" class="text-gray-700 hover:text-blue-600 transition">About</a>
+        <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Mobile Nav (animated) -->
+    <div id="mobile-menu" class="sm:hidden overflow-hidden max-h-0 transition-all duration-500 ease-in-out px-4">
+      <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+      <a href="pricing.html" class="block py-2 text-gray-700 hover:text-blue-600">Pricing</a>
+      <a href="about.html" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+      <a href="contact.html" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-16">
+    <section class="text-center mb-16 zoom-in">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-blue-700 mb-4">Our Pricing</h1>
+      <p class="text-lg text-gray-600">Affordable and transparent pricing for every project type.</p>
+    </section>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white rounded-xl shadow-md p-8 text-center zoom-in">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">Basic Projects</h2>
+        <p class="text-3xl font-extrabold mb-2">Starting at ₹699</p>
+        <p class="text-gray-600 mb-6">Simple and clean code with explanation.</p>
+        <a href="contact.html"
+          class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition">
+          Order Now
+        </a>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md p-8 text-center zoom-in">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">DL + UI Projects</h2>
+        <p class="text-3xl font-extrabold mb-2">Starting at ₹1499</p>
+        <p class="text-gray-600 mb-6">Deep learning with professional UI and explanation video.</p>
+        <a href="contact.html"
+          class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition">
+          Order Now
+        </a>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md p-8 text-center zoom-in">
+        <h2 class="text-xl font-bold text-blue-600 mb-4">Full Bundle</h2>
+        <p class="text-3xl font-extrabold mb-2">Starting at ₹2999</p>
+        <p class="text-gray-600 mb-6">Complete package including DL, UI, documentation, viva help.</p>
+        <a href="contact.html"
+          class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition">
+          Order Now
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="max-w-7xl mx-auto text-center">
+      &copy; 2025 Project Versse. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Animation + Menu Script -->
+  <script>
+    // Zoom-in animation
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('zoom-in-active');
+      document.querySelectorAll('.zoom-in').forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('zoom-in-active');
+        }, 200 * i);
+      });
+    });
+
+    // Smooth Mobile Menu Toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    let isOpen = false;
+
+    menuToggle.addEventListener("click", () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        mobileMenu.classList.remove("max-h-0");
+        mobileMenu.classList.add("max-h-96");
+        menuToggle.textContent = "✕";
+      } else {
+        mobileMenu.classList.remove("max-h-96");
+        mobileMenu.classList.add("max-h-0");
+        menuToggle.textContent = "☰";
+      }
+    });
+
+    // Page transition effect on link click
+    const links = document.querySelectorAll('a[href$=".html"]');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.body.classList.remove('zoom-in-active');
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      });
+    });
+  </script>
+</body>
+</html>
