@@ -81,37 +81,46 @@
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    const form = document.getElementById('contactForm');
-    const popup = document.getElementById('popup');
+<script>
+  const form = document.getElementById('contactForm');
+  const popup = document.getElementById('popup');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      const formData = new FormData(form);
+    const formData = new FormData(form);
 
-      try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbyWMulJmgJM14zuQZqif5kc4kPq3mrJDKD6xGE3EfNhsQkRKUhvc3Ao5QalGxpPzK7G/exec", {
-          method: 'POST',
-          body: formData,
-        });
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyWMulJmgJM14zuQZqif5kc4kPq3mrJDKD6xGE3EfNhsQkRKUhvc3Ao5QalGxpPzK7G/exec", {
+        method: 'POST',
+        body: formData,
+      });
 
-        const resultText = await response.text();
-        console.log(resultText);
+      const result = await response.json();
 
+      if (result.success) {
         popup.innerText = "✅ Message sent successfully!";
         popup.classList.remove('hidden');
         setTimeout(() => {
           popup.classList.add('hidden');
-          window.location.href = "thankyou.html";
+          window.location.href = "https://project-verse.github.io/project-verse/thankyou.html";
         }, 2000);
         form.reset();
-      } catch (err) {
-        popup.innerText = "❌ Failed to submit the form. Try again!";
-        popup.classList.remove('hidden');
-        setTimeout(() => popup.classList.add('hidden'), 5000);
+      } else {
+        throw new Error("Form submission failed");
       }
-    });
-  </script>
+    } catch (err) {
+      popup.innerText = "❌ Failed to submit the form. Try again!";
+      popup.classList.remove('hidden');
+      setTimeout(() => popup.classList.add('hidden'), 5000);
+    }
+  });
+
+  // Animation on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.zoom-in').forEach(el => el.classList.add('zoom-in-active'));
+  });
+</script>
+
 </body>
 </html>
