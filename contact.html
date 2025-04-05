@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import "tailwindcss";
     body {
       font-family: 'Inter', sans-serif;
     }
@@ -63,7 +62,7 @@
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_autoresponse" value="Thanks for contacting Project Versse! We'll get back to you soon.">
-      <input type="hidden" name="_next" value="https://yourwebsite.com/contact.html?success=true">
+      <input type="hidden" name="_next" value="contact.html?success=true">
 
       <div>
         <label class="block text-gray-700 font-semibold mb-1">Name</label>
@@ -104,7 +103,6 @@
   <!-- Script -->
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      // Zoom animation
       document.body.classList.add('zoom-in-active');
       document.querySelectorAll('.zoom-in').forEach((el, i) => {
         setTimeout(() => {
@@ -112,11 +110,11 @@
         }, 200 * i);
       });
 
-      // Handle query string for success/failure popup
+      // Popup logic
       const params = new URLSearchParams(window.location.search);
       const popup = document.getElementById('popup');
       if (params.get('success') === 'true') {
-        popup.innerText = "✅ Message sent successfully! We'll reach out soon.";
+        popup.innerText = "✅ Message sent successfully!";
         popup.classList.remove('hidden');
         setTimeout(() => popup.classList.add('hidden'), 5000);
       } else if (params.get('success') === 'false') {
@@ -139,25 +137,19 @@
       });
     });
 
-    // Animated Mobile menu toggle
+    // Mobile menu toggle
     const menuToggle = document.getElementById("menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     let isOpen = false;
 
     menuToggle.addEventListener("click", () => {
       isOpen = !isOpen;
-      if (isOpen) {
-        mobileMenu.classList.remove("max-h-0");
-        mobileMenu.classList.add("max-h-96");
-        menuToggle.textContent = "✕";
-      } else {
-        mobileMenu.classList.remove("max-h-96");
-        mobileMenu.classList.add("max-h-0");
-        menuToggle.textContent = "☰";
-      }
+      mobileMenu.classList.toggle("max-h-0");
+      mobileMenu.classList.toggle("max-h-96");
+      menuToggle.textContent = isOpen ? "☰" : "✕";
     });
 
-    // Page fade transition
+    // Smooth page transition
     const links = document.querySelectorAll('a[href$=".html"]');
     links.forEach(link => {
       link.addEventListener('click', e => {
