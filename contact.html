@@ -81,60 +81,40 @@
   </footer>
 
   <!-- JavaScript -->
-  <script>
-    const form = document.getElementById('contactForm');
-    const popup = document.getElementById('popup');
+<script>
+  const form = document.getElementById('contactForm');
+  const popup = document.getElementById('popup');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      const formData = new FormData(form);
-      const data = new URLSearchParams();
-      for (const pair of formData) {
-        data.append(pair[0], pair[1]);
-      }
+    const formData = new FormData(form);
 
-      try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbyWMulJmgJM14zuQZqif5kc4kPq3mrJDKD6xGE3EfNhsQkRKUhvc3Ao5QalGxpPzK7G/exec", {
-          method: "POST",
-          body: data
-        });
-
-        const result = await response.json();
-        if (result.success) {
-          popup.innerText = "✅ Message sent successfully!";
-          popup.classList.remove("hidden");
-          setTimeout(() => {
-            popup.classList.add("hidden");
-            window.location.href = "https://project-verse.github.io/project-verse/thankyou.html";
-          }, 2000);
-          form.reset();
-        } else {
-          throw new Error("Form submission failed");
-        }
-      } catch (err) {
-        popup.innerText = "❌ Failed to submit the form. Try again!";
-        popup.classList.remove("hidden");
-        setTimeout(() => popup.classList.add("hidden"), 5000);
-      }
-    });
-
-    // Mobile Menu toggle
-    document.getElementById("menu-toggle").addEventListener("click", () => {
-      const menu = document.getElementById("mobile-menu");
-      const isOpen = menu.classList.contains("max-h-96");
-      menu.classList.toggle("max-h-0", isOpen);
-      menu.classList.toggle("max-h-96", !isOpen);
-      document.getElementById("menu-toggle").textContent = isOpen ? "☰" : "✕";
-    });
-
-    // Initial animation
-    window.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.add('zoom-in-active');
-      document.querySelectorAll('.zoom-in').forEach((el, i) => {
-        setTimeout(() => el.classList.add('zoom-in-active'), 200 * i);
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyWMulJmgJM14zuQZqif5kc4kPq3mrJDKD6xGE3EfNhsQkRKUhvc3Ao5QalGxpPzK7G/exec", {
+        method: 'POST',
+        body: formData,
       });
-    });
-  </script>
+
+      const result = await response.json();
+
+      if (result.success) {
+        popup.innerText = "✅ Message sent successfully!";
+        popup.classList.remove('hidden');
+        setTimeout(() => {
+          popup.classList.add('hidden');
+          window.location.href = "https://project-verse.github.io/project-verse/thankyou.html";
+        }, 2000);
+        form.reset();
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (err) {
+      popup.innerText = "❌ Failed to submit the form. Try again!";
+      popup.classList.remove('hidden');
+      setTimeout(() => popup.classList.add('hidden'), 5000);
+    }
+  });
+</script>
 </body>
 </html>
